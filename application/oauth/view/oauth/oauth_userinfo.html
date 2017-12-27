@@ -1,0 +1,42 @@
+<!DOCTYPE html><html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link href="http://test.wywwwxm.com/fdflex.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .container{
+            width:100%;
+            overflow-x:hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="column">
+            <table>
+                <tr>
+                    <td>头像</td>
+                    <td>
+                        <img src="{$infos.headimgurl}" style="width:30%;height:auto;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>昵称</td>
+                    <td><?php if(isset($infos['nickname'])){echo $infos['nickname'];} ?></td>
+                </tr>
+                <tr>
+                    <td>所在地</td>
+                    <td><?php if(isset($infos['where'])){echo $infos['where'];} ?></td>
+                </tr>
+                <tr>
+                    <td>openid</td>
+                    <td><?php if(isset($infos['openid'])){echo $infos['openid'];} ?></td>
+                </tr>
+            </table>
+            <a href="/admin/index/index"><input type="submit" name="oauth" value="授权"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

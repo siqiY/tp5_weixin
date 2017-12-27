@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">新闻管理</h3>
+    </div>
+    <div class="panel-body">
+        <div>
+            <a href="/admin/media/create">新增永久素材</a>
+            <a href="/admin/media/uploadNews">新增图文素材</a>
+            <table class="result-tab" width="100%">
+
+                <tr>
+                    <td>序号</td>
+                    <td>标题</td>
+                    <td>thumb_media_id</td>
+                    <td>作者</td>
+                    <td>内容</td>
+                    <td>url</td>
+                    <td>操作</td>
+                </tr>
+                {volist name="media" id="vo"}
+                <tr>
+                    <td>{$vo->id}</td>
+                    <td>{$vo->title}</td>
+                    <td>{$vo->thumb_media_id}</td>
+                    <td>{$vo->author}</td>
+                    <td>{$vo->content}</td>
+                    <td>{$vo->create_time}</td>
+                    <td>
+                        <a href="/admin/media/delete?id={$vo->id}" onclick="deleteNews(this);return false;">删除</a>
+                    </td>
+                </tr>
+                {/volist}
+            </table>
+            <div align="center">
+            <ul class="pagination">
+                {$media->render()}
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function deleteNews(obj) {
+        target=obj;
+        if(confirm('您确定要删除该条记录吗？')){
+            $.ajax({
+                url:$(obj).attr('href'),
+                type:"DELETE",
+                success:function (data) {
+                    if(data=="ok"){
+                        alert('删除成功！');
+                        //在页面中删除这个记录
+                        target.parentNode.parentNode('tr').removeChild(target.parentNode.parentNode);
+                    }else{
+                        alert('删除失败！');
+                    }
+
+                }
+            });
+        }
+    }
+</script>

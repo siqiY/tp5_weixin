@@ -1,0 +1,16 @@
+
+<!--显示当前页用户-->
+<table>
+    <tr>
+        <td>用户名</td>
+        <td>密码</td>
+    </tr>
+    {volist name="user" id="vo"}
+    <tr>
+        <td>{$vo.username}</td>
+        <td>{$vo.password}</td>
+    </tr>
+    {/volist}
+</table>
+<!--显示分页码-->
+{$user->render()}

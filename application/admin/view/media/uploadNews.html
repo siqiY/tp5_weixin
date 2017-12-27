@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">添加图文素材</h3>
+    </div>
+    <div class="panel-body">
+        <form action="/admin/media/save/" method="post">
+            <div>
+                标题：<input type="text" name="title">
+            </div>
+            <div>
+                thumb_media_id：<input type="text" name="thumb_media_id">
+            </div>
+            <div>
+                作者：<input type="text" name="author">
+            </div>
+            <div>
+                digest：<input type="text" name="digest">
+            </div>
+            <div>
+                内容：<textarea name="content"></textarea>
+            </div>
+            <div>
+                content_source_url：<input type="text" name="content_source_url">
+            </div>
+            <div>
+                <input type="submit" value="添加">
+            </div>
+
+        </form>
+    </div>
+</div>
